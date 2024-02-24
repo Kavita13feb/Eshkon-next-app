@@ -3,6 +3,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleTheme } from '../Redux/slice';
 import type { RootState } from '../Redux/store'
+import Link from 'next/link';
 
 const Header = () => {
     const theme = useSelector((state: RootState) => state.theme)
