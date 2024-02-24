@@ -22,7 +22,7 @@ export default function RootLayout({
 
       <body className={inter.className}>
         <Header/>
-        <main>{children}</main></body>
+        <main className="mt-5">{children}</main></body>
     </html>
     </StoreProvider>
   );

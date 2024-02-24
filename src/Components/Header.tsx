@@ -14,8 +14,8 @@ const Header = () => {
   };
 
   return (
-    <header className='w-full bg-white shadow-lg m-auto' >
-      <button type='button' className='text-white-700 bg-slate-500 rounded p-2 ' onClick={handleToggleTheme}>Toggle Theme</button>
+    <header className='w-full bg-white shadow-lg m-auto p-2' >
+      <button type='button' className='text-white-700 bg-slate-500 rounded p-1 ' onClick={handleToggleTheme}>Toggle Theme</button>
       <p className='text-gray-700'>Using - {theme === 'light' ? 'Light Theme' : 'Dark Theme'}</p>
     </header>
   );

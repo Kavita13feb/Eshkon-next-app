@@ -21,7 +21,7 @@ export default function Home() {
   const dispatch = useDispatch()
    console.log(theme)
     return (
-      <div >
+      <div className="mt-5">
         <Card/>
       </div>
     )
