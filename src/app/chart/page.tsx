@@ -7,21 +7,15 @@ import { CanvasRenderer } from 'echarts/renderers';
 import 'echarts/lib/component/markLine';
 import { motion } from "framer-motion";
 
-// Register the necessary components and renderers
 echarts.use([LineChart,ScatterChart, GridComponent, TooltipComponent, MarkLineComponent, CanvasRenderer]);
 
-const ScatterChartComponent = () => {
-  const chartRef = useRef(null);
+const ChartComponent = () => {
+  const chartRef = useRef<HTMLDivElement | null>(null);
   const init =[40, 35, 25, 20, 10]
 const [actualYValues,setActualYValues]=useState<number[]>(init)
 const [inputData,setInputData]=useState({"Jan":null, "Feb":null, "Mar":null, "Apr":null, "May":null})
   useEffect(() => {
-    const lineData = [
-      [10, 20],
-      [20, 30],
-      [30, 40],
-      // Add more data points as needed
-    ];
+    
 
     const myChart = echarts.init(chartRef.current);
 
@@ -74,11 +68,12 @@ const options = {
     };
   }, [actualYValues]);
 
-  const handleDataChange = (e) => {
+  const handleDataChange = (e:any) => {
  
    setInputData({...inputData,[e.target.name]:parseInt(e.target.value)})
    let val =Object.values(inputData)
    console.log(val)
+   //@ts-ignore
  setActualYValues(val)
   };
 
@@ -100,8 +95,7 @@ console.log(actualYValues)
         <div id="chart-container" ref={chartRef} style={{ width: '100%', height: '400px' }} />
       </div>
       <div className="controls-column">
-        {/* <button type='button' onClick={handleDataChange}>Change Data</button> */}
-        {/* <button type='button' onClick={handleReset}>Reset Chart</button> */}
+      
       </div>
       <div>
         {["Jan", "Feb", "Mar", "Apr", "May"].map((item, index) => (
@@ -124,5 +118,5 @@ console.log(actualYValues)
   );
 };
 
-export default ScatterChartComponent;
+export default ChartComponent;
 

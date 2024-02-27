@@ -19,7 +19,7 @@ interface CardProps {
 export default function Home() {
   const theme = useSelector((state: RootState) => state.theme)
   const dispatch = useDispatch()
-   console.log(theme)
+   
     return (
       <div className="mt-5">
         <Card/>
