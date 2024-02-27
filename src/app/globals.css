@@ -11,7 +11,19 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
-
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.chart-column {
+  width: 70%;
+}
+.controls-column {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
 /* Dark Theme */
 @media (prefers-color-scheme: dark) {
   :root {

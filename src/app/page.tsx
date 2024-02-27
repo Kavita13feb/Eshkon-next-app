@@ -9,7 +9,7 @@ import Link from 'next/link'
 import 'tailwindcss/tailwind.css'
 import Card from "@/Components/Card";
 import Header from "@/Components/Header";
-
+import { motion } from "framer-motion"
 interface CardProps {
   heading: string
   description: string

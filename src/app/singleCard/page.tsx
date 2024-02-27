@@ -1,4 +1,5 @@
 "use client"
+import { motion } from "framer-motion";
 
 import Image from "next/image";
 import type { RootState } from '../../Redux/store'
@@ -17,8 +18,18 @@ interface CardProps {
 export default function Card() {
   const theme = useSelector((state: RootState) => state.theme)
   const dispatch = useDispatch()
-   console.log(theme)
+  //@ts-ignore
+   function template({ rotate, x }) {
+    return `rotate(${rotate}) translateX(${x})`
+  }
     return (
+      <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 100 }}
+      transition={{ duration: 0.5 }}
+
+>
       <div className="p-6 flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg m-auto">
        
         <div className="p-6 flex flex-col justify-center">
@@ -27,5 +38,6 @@ export default function Card() {
           
         </div>
       </div>
+      </motion.div>
     )
 }
