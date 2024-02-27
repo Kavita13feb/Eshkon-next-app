@@ -68,13 +68,12 @@ const options = {
     };
   }, [actualYValues]);
 
-  const handleDataChange = (e:any) => {
- 
-   setInputData({...inputData,[e.target.name]:parseInt(e.target.value)})
-   let val =Object.values(inputData)
-   console.log(val)
-   //@ts-ignore
- setActualYValues(val)
+  const handleDataChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const updatedInputData = { ...inputData, [e.target.name]: parseInt(e.target.value) };
+    setInputData(updatedInputData);
+    
+    const val = Object.values(updatedInputData).map((value) => value || 0); // Ensure all values are numbers
+    setActualYValues(val);
   };
 
 console.log(actualYValues)
